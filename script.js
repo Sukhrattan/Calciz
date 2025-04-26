@@ -21,7 +21,7 @@ function keyList() {
 
 const key = function handlepressedKey(event) {
     pressedKeyClass = event.target.className;
-
+    lengg = expression.length;
     if (pressedKeyClass != "symbol") {
         currentNumber += event.target.textContent;
     } else {
@@ -30,7 +30,10 @@ const key = function handlepressedKey(event) {
             expression.push(currentNumber);
             currentNumber = "";
         }
-        expression.push(pressedKeyValue);
+        if(!Operator(expression[lengg-1])){
+            expression.push(pressedKeyValue);
+        }
+        
     }
 
     
