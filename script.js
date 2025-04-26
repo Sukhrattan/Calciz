@@ -46,6 +46,7 @@ const key = function handlepressedKey(event) {
     if (pressedKeyValue == "=") {
         tokenizer();
         parser();
+        expression=[];
     }
 };
 
