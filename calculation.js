@@ -8,6 +8,12 @@ const calculations = function(num2,num1,op){
     if(op == "-"){
         sum = (num1 - num2);
     }
+    if(op == "*"){
+        sum = num1*num2;
+    }
+    if(op == "/"){
+        sum = num1/num2;
+    }
     calculation_stack.push(sum);
 }
 let calculation_stack = [];
@@ -21,5 +27,5 @@ const calculator = function (){
         }
     })
     console.log(calculation_stack);
-    document.querySelector(".screen").innerHTML=calculation_stack.pop();
+    document.querySelector(".screen").innerHTML=calculation_stack;
 }
