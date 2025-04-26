@@ -1,10 +1,15 @@
-let sum;
+let sum=0;
+let diff = 0;
+let total;
 const calculations = function(num1,num2,op){
     if(op == "+"){
         sum = num1 + num2;
-        return sum;
+        
     }
-    
+    if(op == "-"){
+        diff = num1 - num2;
+    }
+    total = sum+diff
 }
 let calculation_stack = [];
 const calculator = function (){
