@@ -1,3 +1,3 @@
 # Calciz
 A Functional Calculator Website.
-Current Functionalities Include : Addition.
+Current Functionalities Include : Addition,Subtraction

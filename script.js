@@ -21,18 +21,26 @@ function keyList() {
 
 const key = function handlepressedKey(event) {
     pressedKeyClass = event.target.className;
-
+    
     if (pressedKeyClass != "symbol") {
         currentNumber += event.target.textContent;
+        document.querySelector(".screen").innerHTML=currentNumber;
     } else {
         pressedKeyValue = event.target.textContent;
         if (currentNumber != "") {
             expression.push(currentNumber);
+            
             currentNumber = "";
+            
         }
-        expression.push(pressedKeyValue);
+        lengg = expression.length;
+        if(!(Operator(expression[lengg-1]))){
+            document.querySelector(".screen").innerHTML=pressedKeyValue;
+            expression.push(pressedKeyValue);
+        }
+       
     }
-
+    
     
 
     if (pressedKeyValue == "=") {
