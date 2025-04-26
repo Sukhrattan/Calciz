@@ -33,9 +33,10 @@ const key = function handlepressedKey(event) {
         expression.push(pressedKeyValue);
     }
 
-    tokenizer();
+    
 
     if (pressedKeyValue == "=") {
+        tokenizer();
         parser();
     }
 };
@@ -93,6 +94,7 @@ const parser = function () {
 
     console.log("Postfix Output:", output);
     console.log("Stack After:", op_stack);
+    
     calculator();
 };
 
