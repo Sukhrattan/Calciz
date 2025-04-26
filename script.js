@@ -24,17 +24,21 @@ const key = function handlepressedKey(event) {
     
     if (pressedKeyClass != "symbol") {
         currentNumber += event.target.textContent;
+        document.querySelector(".screen").innerHTML=currentNumber;
     } else {
         pressedKeyValue = event.target.textContent;
         if (currentNumber != "") {
             expression.push(currentNumber);
+            
             currentNumber = "";
+            
         }
         lengg = expression.length;
         if(!(Operator(expression[lengg-1]))){
+            document.querySelector(".screen").innerHTML=pressedKeyValue;
             expression.push(pressedKeyValue);
         }
-        
+       
     }
     
     
