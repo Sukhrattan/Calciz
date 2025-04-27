@@ -20,6 +20,7 @@ function keyList() {
 }
 
 const key = function handlepressedKey(event) {
+    
     pressedKeyClass = event.target.className;
     
     if (pressedKeyClass != "symbol") {
@@ -27,18 +28,32 @@ const key = function handlepressedKey(event) {
         document.querySelector(".screen").innerHTML=currentNumber;
     } else {
         pressedKeyValue = event.target.textContent;
+        
         if (currentNumber != "") {
             expression.push(currentNumber);
             
             currentNumber = "";
             
         }
-        lengg = expression.length;
-        if(!(Operator(expression[lengg-1]))){
+        if(pressedKeyValue=="AC"){
+            expression=[];
+            calculation_stack=[];
+            document.querySelector(".screen").innerHTML=" ";
+        }
+        else if(pressedKeyValue=="C"){
+            pressedKeyValue="";
+            expression.pop();
+            calculation_stack=[];
+            document.querySelector(".screen").innerHTML=" ";
+        }
+        
+        else{
+            lengg = expression.length;
+            if(!(Operator(expression[lengg-1]))){
             document.querySelector(".screen").innerHTML=pressedKeyValue;
             expression.push(pressedKeyValue);
         }
-       
+        }
     }
     
     
