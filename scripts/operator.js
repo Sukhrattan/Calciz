@@ -13,3 +13,15 @@ let operatorsAssocivity = {
     "%":"L"
 }
 
+
+
+
+
+///....Functions to check if token is Digit or Operator.
+function Digit(element) {
+    return /^\d+$/.test(element);
+}
+
+function Operator(element) {
+    return /\+|-|\*|\/|\^/.test(element);
+}
