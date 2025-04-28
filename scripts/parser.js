@@ -14,26 +14,31 @@ export class parser{
                 this.numerical_stack.push(token.value);
             }
             else if(token.type==="Operator"){
-                while(this.operator_stack.length>=1 && compareOperators(type.value,this.operator_stack[len-1])){
+                
+                while(this.operator_stack.length>0 && compareOperators(token.value,this.operator_stack[this.operator_stack.length-1])){
                     this.numerical_stack.push(this.operator_stack.pop());
+                    
                 }
                 this.operator_stack.push(token.value);
+                
             }
+
         });
-       console.log(this.numerical_stack);
+        while(this.operator_stack.length>0){
+            this.numerical_stack.push(this.operator_stack.pop());
+        }
+        return this.numerical_stack;
+        
     }
     
 
 }
 
-
-
-
 function compareOperators(op1, op2) {
     if (operatorsAssocivity[op2] === "L") {
-        return operatorsPrecedence[op1] >= operatorsPrecedence[op2];
+        return operatorsPrecedence[op1] <= operatorsPrecedence[op2];
     } else {
-        return operatorsPrecedence[op1] > operatorsPrecedence[op2];
+        return operatorsPrecedence[op1] < operatorsPrecedence[op2];
     }
 }
 
