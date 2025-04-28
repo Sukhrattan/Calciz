@@ -1,9 +1,9 @@
 
 export class tokens{
-    constructor(type,value){
+    constructor(type,value,expression=[]){
         this.type = type;
         this.value = value;
-        
+        this.expression=expression;
     }
 
     tokenize = ()=>{

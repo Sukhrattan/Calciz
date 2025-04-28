@@ -1,5 +1,5 @@
 import { tokens } from "./tokenizer.js";
-
+import {parser} from "./parser.js";
 
 let pressedKeyValue = "";
 let pressedKeyClass = "";
@@ -14,6 +14,7 @@ function keyList() {
 }
 
 const key = function handlepressedKey(event) {
+    
     pressedKeyClass = event.target.className;
     
     if(pressedKeyClass != "symbol") {
@@ -51,11 +52,12 @@ const key = function handlepressedKey(event) {
     }
 
     if (pressedKeyValue == "=") {
-        const object = new tokens(null,null);
-        object.expression=expression;
+        const object = new tokens(null,null,expression);
         const tokenized_array = object.tokenize();
         console.log(tokenized_array);
-        expression=[];
+        const parsed_array = new parser([],[],tokenized_array);
+        console.log(parsed_array.parse());
+       
     }
 };
 
