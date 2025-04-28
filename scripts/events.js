@@ -4,7 +4,7 @@ import { tokens } from "./tokenizer.js";
 let pressedKeyValue = "";
 let pressedKeyClass = "";
 let currentNumber = "";
-let expression = [];
+
 
 
 
@@ -14,6 +14,7 @@ function keyList() {
 }
 
 const key = function handlepressedKey(event) {
+    let expression = [];
     pressedKeyClass = event.target.className;
     
     if(pressedKeyClass != "symbol") {
@@ -51,8 +52,7 @@ const key = function handlepressedKey(event) {
     }
 
     if (pressedKeyValue == "=") {
-        const object = new tokens(null,null);
-        object.expression=expression;
+        const object = new tokens(null,null,expression);
         const tokenized_array = object.tokenize();
         console.log(tokenized_array);
         expression=[];
