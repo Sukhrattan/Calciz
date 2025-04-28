@@ -1,5 +1,5 @@
 
-export class tokens{
+class tokens{
     constructor(type,value){
         this.type = type;
         this.value = value;
@@ -20,7 +20,7 @@ export class tokens{
    
 }
 
-const getTokenType = ()=>{
+const getTokenType = (char)=>{
     if (/^\d+$/.test(char))   return "Digit";
     if (/\+|-|\*|\/|\^/.test(char)) return "Operator";
 }

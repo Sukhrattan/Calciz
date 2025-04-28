@@ -1,4 +1,4 @@
-import { tokens } from "./tokenizer";
+// import { tokens } from "./tokenizer";
 
 
 let pressedKeyValue = "";
@@ -53,7 +53,8 @@ const key = function handlepressedKey(event) {
     
 
     if (pressedKeyValue == "=") {
-        const object = new tokens();
+        const object = new tokens(null,null);
+        object.expression=expression;
         const result = object.tokenize(expression);
         console.log(result);
         
