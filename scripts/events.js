@@ -1,5 +1,5 @@
 import { tokens } from "./tokenizer.js";
-
+import {parser} from "./parser.js";
 
 let pressedKeyValue = "";
 let pressedKeyClass = "";
@@ -55,7 +55,9 @@ const key = function handlepressedKey(event) {
         const object = new tokens(null,null,expression);
         const tokenized_array = object.tokenize();
         console.log(tokenized_array);
-        expression=[];
+        const parsed_array = new parser([],[],tokenized_array);
+        console.log(parsed_array.parse());
+       
     }
 };
 
