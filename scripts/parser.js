@@ -1,5 +1,5 @@
 
-import { tokenized_array } from "./tokenizer";
+
 
 export class parser{
     constructor(operator_stack=[],numerical_stack=[]){
@@ -19,6 +19,17 @@ export class parser{
     }
 
 
+}
+
+
+
+
+function compareOperators(op1, op2) {
+    if (operatorsAssocivity[op2] === "L") {
+        return operatorsPrecedence[op1] >= operatorsPrecedence[op2];
+    } else {
+        return operatorsPrecedence[op1] > operatorsPrecedence[op2];
+    }
 }
 
 const parsed_object = new parser(); //creates a new object containing both arrays
