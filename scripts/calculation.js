@@ -16,6 +16,9 @@ const calculations = function(num2,num1,op){
     }
     calculation_stack.push(sum);
 }
+
+
+
 let calculation_stack = [];
 const calculator = function (){
     output.forEach(element=>{
