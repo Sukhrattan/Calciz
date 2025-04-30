@@ -29,7 +29,7 @@ export class parser{
                     this.numerical_stack.push(this.operator_stack.pop());
                     
                 }
-                
+                this.operator_stack.push(token.value);
                 
             }
 
@@ -37,6 +37,9 @@ export class parser{
         while(this.operator_stack.length>0){
             this.numerical_stack.push(this.operator_stack.pop());
         }
+
+        
+
         return this.numerical_stack;
         
     }
