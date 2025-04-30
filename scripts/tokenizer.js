@@ -24,6 +24,8 @@ export class tokens{
 const getTokenType = (char)=>{
     if (/^\d+$/.test(char))   return "Digit";
     if (/\+|-|\*|\/|\^/.test(char)) return "Operator";
+    if (/\(/.test(char)) return "Parenthesis_Left";
+    if (/\)/.test(char)) return "Parenthesis_Right";
 }
 
 
