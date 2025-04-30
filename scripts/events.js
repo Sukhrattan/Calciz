@@ -57,7 +57,7 @@ const key = function handlepressedKey(event) {
         console.log(tokenized_array);
         const parsed_array = new parser([],[],tokenized_array);
         console.log(parsed_array.parse());
-       
+        
     }
 };
 

@@ -8,18 +8,28 @@ export class parser{
 
     parse = () =>{
         
-        let len = this.operator_stack.length;
+        
         this.tokenized_array.forEach(token => {
             if(token.type === "Digit"){
                 this.numerical_stack.push(token.value);
             }
+
+             else if(token.type === "Left_Parenthesis"){
+                this.operator_stack.push(token.value);
+             }
+             else if(token.type === "Right_Parenthesis"){
+                while(this.operator_stack.length>0 && (this.operator_stack[this.operator_stack.length-1]!="(")){
+                    this.numerical_stack.push(this.operator_stack.pop());
+                }
+             }
+
             else if(token.type==="Operator"){
                 
                 while(this.operator_stack.length>0 && compareOperators(token.value,this.operator_stack[this.operator_stack.length-1])){
                     this.numerical_stack.push(this.operator_stack.pop());
                     
                 }
-                this.operator_stack.push(token.value);
+                
                 
             }
 
