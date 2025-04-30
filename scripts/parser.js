@@ -21,7 +21,11 @@ export class parser{
                 while(this.operator_stack.length>0 && (this.operator_stack[this.operator_stack.length-1]!="(")){
                     this.numerical_stack.push(this.operator_stack.pop());
                 }
+                if(token.type === "Parenthesis_Left"){
+                    this.operator_stack.pop();
+                }
              }
+             
 
             else if(token.type==="Operator"){
                 
