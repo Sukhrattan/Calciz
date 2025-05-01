@@ -37,7 +37,7 @@ export class parser{
                     }
                     this.operator_stack.push(token.value);
                     
-                }throw new Error("Invalid Operator");
+                }
     
             });
             while(this.operator_stack.length>0){
